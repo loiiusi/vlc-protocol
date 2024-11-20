@@ -57,10 +57,14 @@
 - URL 参数经过安全检查和编码处理
 - 不支持执行任意命令
 
+## 致谢
+
+本项目基于 [Stefan Sundin](https://github.com/stefansundin) 的工作。感谢他为开源社区做出的贡献！
+
 ## 贡献
 
 欢迎提交 Pull Request 或 Issue！
 
 ## 许可证
 
-MIT
+GPLv3
