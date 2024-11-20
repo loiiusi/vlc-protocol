@@ -59,7 +59,7 @@
 
 ## 致谢
 
-本项目基于 [Stefan Sundin](https://github.com/stefansundin) 的工作。感谢他为开源社区做出的贡献！
+本项目基于 [stefansundin/vlc-protocol](https://github.com/stefansundin/vlc-protocol)，感谢原项目开发者的贡献。
 
 ## 贡献
 
