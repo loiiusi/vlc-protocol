@@ -1,0 +1,51 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: macos-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up mingw-w64
+        run: |
+          brew install mingw-w64
+          
+      - name: Build all packages
+        run: |
+          chmod +x scripts/build-all.sh
+          ./scripts/build-all.sh
+          
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          files: |
+            dist/vlc-protocol-windows-exe.zip
+            dist/vlc-protocol-macos-universal.zip
+            dist/vlc-protocol-windows-powershell.zip
+            dist/vlc-protocol-windows-bat.zip
+            dist/vlc-protocol-linux.zip
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          name: Release ${{ github.ref_name }}
+          body: |
+            ## VLC Protocol Handler ${{ github.ref_name }}
+            
+            ### Downloads
+            - Windows EXE version: [vlc-protocol-windows-exe.zip](vlc-protocol-windows-exe.zip)
+            - Windows PowerShell version: [vlc-protocol-windows-powershell.zip](vlc-protocol-windows-powershell.zip)
+            - Windows Batch version: [vlc-protocol-windows-bat.zip](vlc-protocol-windows-bat.zip)
+            - macOS version: [vlc-protocol-macos-universal.zip](vlc-protocol-macos-universal.zip)
+            - Linux version: [vlc-protocol-linux.zip](vlc-protocol-linux.zip)
+            
+            ### Installation
+            Please refer to the README.md in each package for installation instructions.
