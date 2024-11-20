@@ -1,3 +1,66 @@
-To get this working in Firefox, you have to open `about:config`. Once there, enter `network.protocol-handler.expose.vlc` in the search field and create it as a boolean. Once created, set the value to `false`.
+# VLC Protocol Handler
 
-You are probably interested in my [Open with VLC](https://github.com/stefansundin/open-with-vlc) browser extension.
+这是一个跨平台的 VLC 协议处理程序，支持通过点击 `vlc://` 链接来用 VLC 播放视频。
+
+## 功能特性
+
+- 支持多种 URL 格式：
+  - 标准格式：`vlc://http://example.com/video.mp4`
+  - Chrome 130+ 格式（自动修复）：`vlc://http//example.com/video.mp4`
+  - weblink 格式：`vlc://weblink?url=http://example.com/video.mp4`
+  - URL 编码的链接：`vlc://weblink?url=http%3A%2F%2Fexample.com%2Fvideo.mp4`
+- 跨平台支持：
+  - Windows：支持 PowerShell、批处理和可执行文件三种安装方式
+  - macOS：支持命令行和图形界面安装
+- 友好的错误提示和日志记录
+- 无窗口静默运行
+
+## 平台支持
+
+### Windows
+- 支持 Windows 7 及以上版本
+- 提供三种安装方式：
+  1. PowerShell 脚本（推荐）：无窗口，易于维护
+  2. 批处理脚本：简单直接
+  3. 可执行文件：性能最佳
+- 详细说明请查看 [windows/README.md](windows/README.md)
+
+### macOS
+- 支持 macOS 10.13 及以上版本
+- 提供两种安装方式：
+  1. 命令行安装：`./build.sh --install`
+  2. 图形界面：双击安装包
+- 详细说明请查看 [macos/README.md](macos/README.md)
+
+## 浏览器配置
+
+### Firefox
+1. 打开 `about:config`
+2. 搜索 `network.protocol-handler.expose.vlc`
+3. 创建为布尔值并设置为 `false`
+
+### Chrome
+- Chrome 130 以前：直接点击链接即可使用
+- Chrome 130 及以后：自动修复新的 URL 格式
+
+### Safari
+- macOS：直接点击链接即可使用
+- 其他平台：不支持
+
+## 相关项目
+
+- [Open with VLC](https://github.com/stefansundin/open-with-vlc) - 浏览器扩展，支持右键菜单打开视频
+
+## 安全说明
+
+- 仅支持 http:// 和 https:// 链接
+- URL 参数经过安全检查和编码处理
+- 不支持执行任意命令
+
+## 贡献
+
+欢迎提交 Pull Request 或 Issue！
+
+## 许可证
+
+MIT
