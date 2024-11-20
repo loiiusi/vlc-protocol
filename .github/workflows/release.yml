@@ -23,10 +23,9 @@ jobs:
           
       - name: Create Release
         id: create_release
-        uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v2
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           files: |
             dist/vlc-protocol-windows-exe.zip
             dist/vlc-protocol-macos-universal.zip
