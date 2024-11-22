@@ -6,9 +6,7 @@
 
 - 支持标准格式：`vlc://http://example.com/video.mp4`
 - 支持Chrome 130+格式（自动修复）：`vlc://http//example.com/video.mp4`
-- 支持weblink格式：`vlc://weblink?url=http://example.com/video.mp4`
-- 支持URL编码的链接：`vlc://weblink?url=http%3A%2F%2Fexample.com%2Fvideo.mp4`
-- 友好的错误提示
+- 支持weblink格式：`vlc://weblink?url=http%3A%2F%2Fexample.com%2Fvideo.mp4`
 
 ## 构建和安装
 
@@ -56,5 +54,5 @@ cd mac
 
 ## 系统要求
 
-- macOS 10.4 或更高版本
+- macOS 10.15 或更高版本
 - VLC media player

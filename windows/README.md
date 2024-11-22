@@ -6,9 +6,7 @@
 
 - 支持标准格式：`vlc://http://example.com/video.mp4`
 - 支持 Chrome 130+ 格式（自动修复）：`vlc://http//example.com/video.mp4`
-- 支持 weblink 格式：`vlc://weblink?url=http://example.com/video.mp4`
-- 支持 URL 编码的链接：`vlc://weblink?url=http%3A%2F%2Fexample.com%2Fvideo.mp4`
-- 友好的错误提示
+- 支持 weblink 格式：`vlc://weblink?url=http%3A%2F%2Fexample.com%2Fvideo.mp4`
 
 ## 安装方式
 
@@ -31,20 +29,18 @@
 这种方式不会出现命令行窗口，且性能最好。
 
 #### 直接下载安装
-1. 从 [Releases](https://github.com/stefansundin/vlc-protocol/releases/latest) 页面下载最新的 exe 文件
-2. 将下载的 exe 文件复制到 VLC 安装目录
+1. 从 [Releases](https://github.com/northsea4/vlc-protocol/releases/latest) 页面下载最新的 [vlc-protocol-windows-exe.zip](https://github.com/northsea4/vlc-protocol/releases/download/v1.3.2/vlc-protocol-windows-exe.zip) 文件
+2. 将下载的 zip 文件解压后把里面的文件复制到 VLC 安装目录
 3. 以管理员身份运行 `vlc-protocol-register.bat`
 
-#### 自行编译安装
+#### 自行编译
 1. 安装 MinGW-w64 工具链
    - Windows: 使用 [MSYS2](https://www.msys2.org/) 安装
    - macOS: 使用 Homebrew 安装 `brew install mingw-w64`
    - Linux: 使用包管理器安装，如 `sudo apt install gcc-mingw-w64`
-2. 克隆仓库：`git clone https://github.com/stefansundin/vlc-protocol.git`
+2. 克隆仓库：`git clone https://github.com/northsea4/vlc-protocol.git`
 3. 进入目录：`cd vlc-protocol/windows/exe/`
 4. 编译：`./build.sh`
-5. 将生成的 exe 文件复制到 VLC 安装目录
-6. 以管理员身份运行 `vlc-protocol-register.bat`
 
 ## 测试
 
@@ -59,9 +55,12 @@
 ### 批处理脚本卸载
 以管理员身份运行 `vlc-protocol-deregister.bat`
 
+### 可执行文件卸载
+以管理员身份运行 `vlc-protocol-deregister.bat`
+
 ## 系统要求
 
-- Windows 7 或更高版本
+- Windows 10 或更高版本
 - VLC media player 2.0.0 或更高版本
 
 ## 故障排除
@@ -78,15 +77,14 @@
 ## 安全说明
 
 - 程序会验证 URL 格式，只允许 http:// 和 https:// 链接
-- 所有 URL 参数都经过安全检查和编码处理
 - 不支持执行任意命令，仅支持打开视频链接
 
 ## 开发说明
 
 提供了三种实现方式：
-1. PowerShell 脚本（ps）：功能完整，无窗口显示，易于维护
-2. 批处理脚本（bat）：简单直接，但会显示命令行窗口
-3. 可执行文件（exe）：性能最好，完全无窗口，支持 x86_64 和 arm64 架构
+1. PowerShell 脚本（ps）：功能完整，易于维护
+2. 批处理脚本（bat）：简单直接，暂不支持 weblink 格式
+3. 可执行文件（exe）：性能最好，支持 x86_64 和 arm64 架构
 
 选择建议：
 - 一般用户：使用 PowerShell 版本
