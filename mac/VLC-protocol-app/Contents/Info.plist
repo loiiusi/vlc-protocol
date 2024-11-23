@@ -25,6 +25,8 @@
             </array>
         </dict>
     </array>
+    <key>CFBundleIconFile</key>
+    <string>AppIcon.icns</string>
     <key>LSUIElement</key>
     <true/>
 </dict>
