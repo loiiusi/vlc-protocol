@@ -11,6 +11,7 @@ echo After removing prefix: !url!
 :: Fix Chrome 130+ format
 set "needfix="
 echo !url! | findstr /i "^http//" >nul && set "needfix=1"
+echo !url! | findstr /i "^https://" >nul && set "needfix=1"
 if defined needfix (
     echo Fixing Chrome 130+ format
     set "url=!url:http//=http://!"
